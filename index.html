@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/2b235f1056.js" crossorigin="anonymous"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <title>coviDetective</title>
+</head>
+
+<body>
+    <header>
+        <div class="container-fluid">
+            <div class="header__group">
+                <a class="header__logo btn btn-outline-dark btn-lg" href="/">coviDetective</a>
+
+                <a class="header__youtube btn btn-danger" href="https://www.youtube.com/channel/UCqpr5y5VCEX5qzR-qx_2vMw?sub_confirmation=1" target="_blank">
+                    <i class="fab fa-youtube"></i>
+                    Subscribe to my channel
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="sidebar">
+                        <div class="loader-global"></div>
+
+                        <div class="global-data">
+                            <div class="alert alert-primary bg-primary color-fff">
+                                <div><strong>Date:</strong></div>
+                                <div data-current-date>TBD</div>
+                                <div><strong>Updated at:</strong></div>
+                                <div data-current-time>TBD</div>
+                            </div>
+                            <div class="alert alert-danger bg-danger color-fff">
+                                <div><strong>Total Confirmed:</strong></div>
+                                <div data-total-confirmed>TBD</div>
+                            </div>
+                            <div class="alert alert-danger bg-danger color-fff">
+                                <div><strong>New Confirmed:</strong></div>
+                                <div data-new-confirmed>TBD</div>
+                            </div>
+                            <div class="alert alert-success bg-success color-fff">
+                                <div><strong>Total Recovered:</strong></div>
+                                <div data-total-recovered>TBD</div>
+                            </div>
+                            <div class="alert alert-success bg-success color-fff">
+                                <div><strong>New Recovered:</strong></div>
+                                <div data-new-recovered>TBD</div>
+                            </div>
+                            <div class="alert alert-dark">
+                                <div><strong>Total Deaths:</strong></div>
+                                <div data-total-deaths>TBD</div>
+                            </div>
+                            <div class="alert alert-dark">
+                                <div><strong>New Deaths:</strong></div>
+                                <div data-new-deaths>TBD</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-9">
+                    <div class="main">
+                        <div class="loader-countries"></div>
+
+                        <div class="table-responsive countries-table">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Country</th>
+                                        <th scope="col">Total Confirmed</th>
+                                        <th scope="col">New Confirmed</th>
+                                        <th scope="col">Total Recovered</th>
+                                        <th scope="col">New Recovered</th>
+                                        <th scope="col">Total Deaths</th>
+                                        <th scope="col">New Deaths</th>
+                                    </tr>
+                                </thead>
+                                <tbody data-countries-rows>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
