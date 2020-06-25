@@ -1,0 +1,22 @@
+{
+  "name": "covidetective",
+  "version": "1.0.0",
+  "description": "Keep track on Coronavirus (COVID-19) cases globally.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DC989/coviDetective.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DC989/coviDetective/issues"
+  },
+  "homepage": "https://github.com/DC989/coviDetective#readme",
+  "dependencies": {
+    "tablesort": "^5.2.1"
+  }
+}

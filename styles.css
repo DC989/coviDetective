@@ -3,6 +3,12 @@ html {
 }
 
 body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    background: #eef0f1;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizelegibility;
     font-family: 'Arvo', serif;
@@ -13,48 +19,101 @@ body {
 }
 
 header {
-    padding: 15px 0;
+    background: #fff;
+    padding: 7.5px 0;
+}
+
+@media only screen and (min-width: 576px) {
+    header {
+        padding: 15px 0;
+    }
 }
 
 .header__group {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
 }
 
+@media only screen and (min-width: 576px) {
+    .header__group {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.header__group a {
+    margin: 7.5px 0;
+}
+
+@media only screen and (min-width: 576px) {
+    .header__group a {
+        margin: 0;
+    }
+}
+
 .header__logo {
-    font-size: 40px;
+    font-size: 30px;
+}
+
+@media only screen and (min-width: 768px) {
+    .header__logo {
+        font-size: 40px;
+    }
+}
+
+.header__logo:hover i {
+    animation: spin 6s linear infinite;
 }
 
 .header__youtube i {
     margin-right: 10px;
 }
 
+.header__youtube:hover i {
+    animation: spin 3s linear infinite;
+}
+
+.wrapper {
+    padding: 15px 0;
+}
+
+.loader {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.loader i {
+    font-size: 300px;
+    color: #dc3545;
+    animation: spin 6s linear infinite;
+}
+
 .sidebar {
     font-size: 20px;
-}
-
-.loader-global {
-    border: 16px solid #f3f3f3;
-    border-top: 16px solid #3498db;
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    animation: spin 2s linear infinite;
-}
-
-.loader-countries {
-    border: 30px solid #f3f3f3;
-    border-top: 30px solid #3498db;
-    border-radius: 50%;
-    width: 250px;
-    height: 250px;
-    animation: spin 2s linear infinite;
 }
 
 .global-data,
 .countries-table {
     display: none;
+}
+
+.table thead th {
+    position: relative;
+}
+
+th[role=columnheader]:not(.no-sort):after {
+    float: none;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    margin: 0;
 }
 
 @keyframes spin {

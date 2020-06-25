@@ -8,20 +8,17 @@ const getCovidData = () => {
             console.log(resData);
             console.log(resData.Countries[0].Country);
 
+            loaderIcon.style.display = 'none';
             setGlobalData(resData);
             setCountriesData(resData);
         })
 };
 
-getCovidData();
-
-setInterval(() => {
+setTimeout(() => {
     getCovidData();
-}, 60000);
+}, 2000);
 
-
-
-const loaderGlobal = document.querySelector('.loader-global');
+const loaderIcon = document.querySelector('.loader');
 const globalData = document.querySelector('.global-data');
 const currentDate = document.querySelector('[data-current-date]');
 const currentTime = document.querySelector('[data-current-time]');
@@ -69,13 +66,9 @@ function setGlobalData(data) {
     totalDeaths.textContent = data.Global.TotalDeaths;
     newDeaths.textContent = data.Global.NewDeaths;
 
-    loaderGlobal.style.display = 'none';
     globalData.style.display = 'block';
 }
 
-
-
-const loaderCountries = document.querySelector('.loader-countries');
 const countriesData = document.querySelector('.countries-table');
 const countriesTable = document.querySelector('[data-countries-rows]');
 
@@ -95,6 +88,7 @@ function setCountriesData(data) {
             `;
     });
 
-    loaderCountries.style.display = 'none';
     countriesData.style.display = 'block';
 }
+
+new Tablesort(document.getElementById('main-table'));
