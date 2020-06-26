@@ -74,10 +74,15 @@ const countriesTable = document.querySelector('[data-countries-rows]');
 
 function setCountriesData(data) {
     data.Countries.forEach((item) => {
+        let countryCode = item.CountryCode.toLowerCase();
+
         countriesTable.innerHTML +=
             `
             <tr>
-            <td>${item.Country}</td>
+            <td>
+                <span class="flag-icon flag-icon-${countryCode}" style="margin-right:10px;"></span>
+                ${item.Country}
+            </td>
             <td>${item.TotalConfirmed}</td>
             <td>${item.NewConfirmed}</td>
             <td>${item.TotalRecovered}</td>

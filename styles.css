@@ -11,11 +11,16 @@ body {
     background: #eef0f1;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizelegibility;
-    font-family: 'Arvo', serif;
+    font-family: 'Bree Serif', serif;
 }
 
 .color-fff {
     color: #fff;
+}
+
+.alert {
+    box-shadow: 3px 3px 0 #000;
+    border: 2px solid #000;
 }
 
 header {
@@ -103,8 +108,25 @@ header {
     display: none;
 }
 
+.global-data>div {
+    transition: transform .3s;
+}
+
+.global-data>div:hover {
+    transform: scale(1.02);
+}
+
 .table thead th {
     position: relative;
+}
+
+.table tbody tr {
+    transition: background-color .3s;
+}
+
+.table tbody tr:hover,
+.table tbody tr:focus {
+    background-color: #fff;
 }
 
 th[role=columnheader]:not(.no-sort):after {
