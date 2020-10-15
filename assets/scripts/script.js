@@ -9,6 +9,9 @@ const getCovidData = () => {
             console.log(resData.Countries[0].Country);
 
             loaderIcon.style.display = 'none';
+
+            theData = resData;
+
             setGlobalData(resData);
             setCountriesData(resData);
         })
@@ -17,6 +20,8 @@ const getCovidData = () => {
 setTimeout(() => {
     getCovidData();
 }, 2000);
+
+let theData;
 
 const loaderIcon = document.querySelector('.loader');
 const globalData = document.querySelector('.global-data');
@@ -70,6 +75,7 @@ function setGlobalData(data) {
 }
 
 const countriesData = document.querySelector('.countries-table');
+const inputFilter = document.querySelector('#search-country');
 const countriesTable = document.querySelector('[data-countries-rows]');
 
 function setCountriesData(data) {
@@ -90,10 +96,60 @@ function setCountriesData(data) {
             <td>${item.TotalDeaths}</td>
             <td>${item.NewDeaths}</td>
             </tr>
-            `;
+        `;
     });
 
     countriesData.style.display = 'block';
+    inputFilter.style.display = 'block';
 }
 
 new Tablesort(document.getElementById('main-table'));
+
+
+
+
+
+
+
+inputFilter.addEventListener('input', filterCountries);
+
+function filterCountries() {
+    let input = inputFilter.value;
+    let newData = [];
+
+    theData.Countries.forEach((item) => {
+        let countryName = item.Country.toLowerCase();
+
+        if (countryName.indexOf(input) > -1) {
+            newData.push(item);
+        }
+    });
+
+    if (newData.length != 0) {
+        console.log(newData);
+
+        countriesTable.innerHTML = '';
+        
+        for (let i = 0; i < newData.length; i++) {
+            let countryCode = newData[i].CountryCode.toLowerCase();
+
+            countriesTable.innerHTML +=
+                `
+                    <tr>
+                    <td>
+                        <span class="flag-icon flag-icon-${countryCode}" style="margin-right:10px;"></span>
+                        ${newData[i].Country}
+                    </td>
+                    <td>${newData[i].TotalConfirmed}</td>
+                    <td>${newData[i].NewConfirmed}</td>
+                    <td>${newData[i].TotalRecovered}</td>
+                    <td>${newData[i].NewRecovered}</td>
+                    <td>${newData[i].TotalDeaths}</td>
+                    <td>${newData[i].NewDeaths}</td>
+                    </tr>
+                    `;
+        }
+    } else {
+        countriesTable.innerHTML = '';
+    }
+}

@@ -124,7 +124,8 @@ header {
 }
 
 .global-data,
-.countries-table {
+.countries-table,
+#search-country {
     display: none;
 }
 
