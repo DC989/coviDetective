@@ -11,16 +11,36 @@ body {
     background: #eef0f1;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizelegibility;
-    font-family: 'Bree Serif', serif;
+    font-family: 'Nunito', sans-serif;
 }
 
-.color-fff {
+.global-data .alert {
     color: #fff;
 }
 
-.alert {
-    box-shadow: 3px 3px 0 #000;
-    border: 2px solid #000;
+.global-data .alert-primary {
+    background-color: #0061f2 !important;
+}
+
+.global-data .alert-danger {
+    background-color: #f4a100 !important;
+}
+
+.global-data .alert-success {
+    background-color: #00ac69 !important;
+}
+
+.global-data .alert-dark {
+    background-color: #e81500 !important;
+}
+
+.global-data .alert>div:nth-child(odd) {
+    font-size: 16px !important;
+    font-weight: 400 !important;
+}
+
+.global-data .alert>div:nth-child(even) {
+    font-size: 20px !important;
 }
 
 header {

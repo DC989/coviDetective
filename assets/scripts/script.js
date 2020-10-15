@@ -43,7 +43,7 @@ function setGlobalData(data) {
     let currentSeconds = new Date().getSeconds();
     currentSeconds = currentSeconds.toString();
 
-    currentDate.textContent = currentDay + '.' + currentMonth + '.' + currentYear;
+    currentDate.innerHTML = `<strong>${currentDay + '.' + currentMonth + '.' + currentYear}</strong>`;
 
     if (currentHours.length < 2) {
         currentHours = '0' + currentHours;
@@ -57,14 +57,14 @@ function setGlobalData(data) {
         currentSeconds = '0' + currentSeconds;
     }
 
-    currentTime.textContent = currentHours + ':' + currentMinutes + ':' + currentSeconds;
+    currentTime.innerHTML = `<strong>${currentHours + ':' + currentMinutes + ':' + currentSeconds}</strong>`;
 
-    totalConfirmed.textContent = data.Global.TotalConfirmed;
-    newConfirmed.textContent = data.Global.NewConfirmed;
-    totalRecovered.textContent = data.Global.TotalRecovered;
-    newRecovered.textContent = data.Global.NewRecovered;
-    totalDeaths.textContent = data.Global.TotalDeaths;
-    newDeaths.textContent = data.Global.NewDeaths;
+    totalConfirmed.innerHTML = `<strong>${data.Global.TotalConfirmed}</strong>`;
+    newConfirmed.innerHTML = `<strong>${data.Global.NewConfirmed}</strong>`;
+    totalRecovered.innerHTML = `<strong>${data.Global.TotalRecovered}</strong>`;
+    newRecovered.innerHTML = `<strong>${data.Global.NewRecovered}</strong>`;;
+    totalDeaths.innerHTML = `<strong>${data.Global.TotalDeaths}</strong>`;;
+    newDeaths.innerHTML = `<strong>${data.Global.NewDeaths}</strong>`;;
 
     globalData.style.display = 'block';
 }
