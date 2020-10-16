@@ -160,6 +160,11 @@ footer {
     font-size: 20px;
 }
 
+#regions_div {
+    display: none;
+    margin-bottom: 15px;
+}
+
 .global-data,
 .countries-table,
 #search-country {

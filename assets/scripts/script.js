@@ -8,12 +8,27 @@ const getCovidData = () => {
             console.log(resData);
             console.log(resData.Countries[0].Country);
 
+            
+
             loaderIcon.style.display = 'none';
 
             theData = resData;
 
+            console.log(theData.Countries);
+
             setGlobalData(resData);
             setCountriesData(resData);
+
+
+
+
+            google.charts.load('current', {
+                'packages': ['geochart'],
+                // Note: you will need to get a mapsApiKey for your project.
+                // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+                'mapsApiKey': 'AIzaSyAhX_FESZBAVBIRSAf0oLKvRVZvfz9KNW0'
+            });
+            google.charts.setOnLoadCallback(drawRegionsMap);
         })
 };
 
@@ -76,6 +91,7 @@ function setGlobalData(data) {
 
 const countriesData = document.querySelector('.countries-table');
 const inputFilter = document.querySelector('#search-country');
+const regionsMap = document.querySelector('#regions_div');
 const countriesTable = document.querySelector('[data-countries-rows]');
 
 function setCountriesData(data) {
@@ -101,6 +117,7 @@ function setCountriesData(data) {
 
     countriesData.style.display = 'block';
     inputFilter.style.display = 'block';
+    regionsMap.style.display = 'block';
 }
 
 new Tablesort(document.getElementById('main-table'));
@@ -129,7 +146,7 @@ function filterCountries() {
         console.log(newData);
 
         countriesTable.innerHTML = '';
-        
+
         for (let i = 0; i < newData.length; i++) {
             let countryCode = newData[i].CountryCode.toLowerCase();
 
@@ -152,4 +169,39 @@ function filterCountries() {
     } else {
         countriesTable.innerHTML = '';
     }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+function drawRegionsMap() {
+    var countries = [
+        ['Country', 'TotalConfirmed']
+    ];
+
+
+
+    for(let i = 0; i < theData.Countries.length; i++) {
+        let newData = [i.Country, i.TotalConfirmed];
+
+        countries.push(newData);
+    }
+
+
+
+    var data = google.visualization.arrayToDataTable(countries);
+
+    var options = {};
+
+    var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+    chart.draw(data, options);
 }
