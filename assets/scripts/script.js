@@ -8,12 +8,13 @@ const getCovidData = () => {
             console.log(resData);
             console.log(resData.Countries[0].Country);
 
-            
+
 
             loaderIcon.style.display = 'none';
 
             theData = resData;
 
+            console.log('theData.Countries');
             console.log(theData.Countries);
 
             setGlobalData(resData);
@@ -21,14 +22,8 @@ const getCovidData = () => {
 
 
 
-
-            google.charts.load('current', {
-                'packages': ['geochart'],
-                // Note: you will need to get a mapsApiKey for your project.
-                // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
-                'mapsApiKey': 'AIzaSyAhX_FESZBAVBIRSAf0oLKvRVZvfz9KNW0'
-            });
             google.charts.setOnLoadCallback(drawRegionsMap);
+
         })
 };
 
@@ -176,6 +171,12 @@ function filterCountries() {
 
 
 
+google.charts.load('current', {
+    'packages': ['geochart'],
+    // Note: you will need to get a mapsApiKey for your project.
+    // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+    'mapsApiKey': 'AIzaSyAhX_FESZBAVBIRSAf0oLKvRVZvfz9KNW0'
+});
 
 
 
@@ -189,11 +190,47 @@ function drawRegionsMap() {
 
 
 
-    for(let i = 0; i < theData.Countries.length; i++) {
-        let newData = [i.Country, i.TotalConfirmed];
+    theData.Countries.forEach((item) => {
+
+        let newData = [];
+
+        switch (item.Country) {
+            case "United States of America":
+                item.Country = "United States";
+                newData = [item.Country, item.TotalConfirmed];
+                countries.push(newData);
+                break;
+            case "Russian Federation":
+                item.Country = "RU";
+                newData = [item.Country, item.TotalConfirmed];
+                countries.push(newData);
+                break;
+            case "Venezuela (Bolivarian Republic)":
+                item.Country = "Venezuela";
+                newData = [item.Country, item.TotalConfirmed];
+                countries.push(newData);
+                break;
+        }
+
+        newData = [item.Country, item.TotalConfirmed];
+
+        countries.push(newData);
+
+        console.log(countries);
+    });
+
+
+
+    /*
+    for(let i = 0; i < theData.length; i++) {
+        let newData = [i.Countries.Country, i.Countries.TotalConfirmed];
 
         countries.push(newData);
     }
+    */
+
+    console.log('API call completed!');
+    console.log(countries);
 
 
 

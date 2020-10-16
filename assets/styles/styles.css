@@ -163,6 +163,7 @@ footer {
 #regions_div {
     display: none;
     margin-bottom: 15px;
+    overflow: scroll;
 }
 
 .global-data,
