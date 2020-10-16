@@ -19,19 +19,19 @@ body {
 }
 
 .global-data .alert-primary {
-    background-color: #0061f2 !important;
+    background-color: #f9ed69 !important;
 }
 
 .global-data .alert-danger {
-    background-color: #f4a100 !important;
+    background-color: #6a2c70 !important;
 }
 
 .global-data .alert-success {
-    background-color: #00ac69 !important;
+    background-color: #f08a5d !important;
 }
 
 .global-data .alert-dark {
-    background-color: #e81500 !important;
+    background-color: #b83b5e !important;
 }
 
 .global-data .alert>div:nth-child(odd) {
