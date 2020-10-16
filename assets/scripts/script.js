@@ -210,11 +210,10 @@ function drawRegionsMap() {
                 newData = [item.Country, item.TotalConfirmed];
                 countries.push(newData);
                 break;
+            default:
+                newData = [item.Country, item.TotalConfirmed];
+                countries.push(newData);
         }
-
-        newData = [item.Country, item.TotalConfirmed];
-
-        countries.push(newData);
 
         console.log(countries);
     });
