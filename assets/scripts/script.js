@@ -13,6 +13,7 @@ const getCovidData = () => {
             loaderIcon.style.display = 'none';
 
             theData = resData;
+            mapData = goclone(resData);
 
             console.log('theData.Countries');
             console.log(theData.Countries);
@@ -32,6 +33,7 @@ setTimeout(() => {
 }, 2000);
 
 let theData;
+let mapData;
 
 const loaderIcon = document.querySelector('.loader');
 const globalData = document.querySelector('.global-data');
@@ -168,9 +170,6 @@ function filterCountries() {
 
 
 
-
-
-
 google.charts.load('current', {
     'packages': ['geochart'],
     // Note: you will need to get a mapsApiKey for your project.
@@ -180,19 +179,13 @@ google.charts.load('current', {
 
 
 
-
-
-
 function drawRegionsMap() {
-    var countries = [
+    let countries = [
         ['Country', 'TotalConfirmed']
     ];
+    let newData = [];
 
-
-
-    theData.Countries.forEach((item) => {
-
-        let newData = [];
+    mapData.Countries.forEach((item) => {
 
         switch (item.Country) {
             case "United States of America":
@@ -210,34 +203,63 @@ function drawRegionsMap() {
                 newData = [item.Country, item.TotalConfirmed];
                 countries.push(newData);
                 break;
+            case "Congo (Brazzaville)":
+                item.Country = "CG";
+                newData = [item.Country, item.TotalConfirmed];
+                countries.push(newData);
+                break;
+            case "Congo (Kinshasa)":
+                item.Country = "CD";
+                newData = [item.Country, item.TotalConfirmed];
+                countries.push(newData);
+                break;
+            case "Côte d'Ivoire":
+                item.Country = "CI";
+                newData = [item.Country, item.TotalConfirmed];
+                countries.push(newData);
+                break;
+            case "Iran, Islamic Republic of":
+                item.Country = "Iran";
+                newData = [item.Country, item.TotalConfirmed];
+                countries.push(newData);
+                break;
             default:
                 newData = [item.Country, item.TotalConfirmed];
                 countries.push(newData);
         }
-
-        console.log(countries);
     });
-
-
-
-    /*
-    for(let i = 0; i < theData.length; i++) {
-        let newData = [i.Countries.Country, i.Countries.TotalConfirmed];
-
-        countries.push(newData);
-    }
-    */
 
     console.log('API call completed!');
     console.log(countries);
 
-
-
-    var data = google.visualization.arrayToDataTable(countries);
-
-    var options = {};
-
-    var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+    let data = google.visualization.arrayToDataTable(countries);
+    let options = {
+        colorAxis: {colors: ['#FF0000', '#8B0000']}
+    };
+    let chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
 
     chart.draw(data, options);
+}
+
+
+// clone function for creating a clone of an object and not refferencing to the original one
+
+function goclone(source) {
+    if (Object.prototype.toString.call(source) === '[object Array]') {
+        var clone = [];
+        for (var i = 0; i < source.length; i++) {
+            clone[i] = goclone(source[i]);
+        }
+        return clone;
+    } else if (typeof (source) == "object") {
+        var clone = {};
+        for (var prop in source) {
+            if (source.hasOwnProperty(prop)) {
+                clone[prop] = goclone(source[prop]);
+            }
+        }
+        return clone;
+    } else {
+        return source;
+    }
 }
