@@ -1,12 +1,12 @@
 const getCovidData = () => {
     fetch('https://api.covid19api.com/summary')
         .then(res => {
-            console.log(res);
+            /*console.log(res);*/
             return res.json();
         })
         .then(resData => {
-            console.log(resData);
-            console.log(resData.Countries[0].Country);
+            /*console.log(resData);*/
+            /*console.log(resData.Countries[0].Country);*/
 
 
 
@@ -15,8 +15,8 @@ const getCovidData = () => {
             theData = resData;
             mapData = goclone(resData);
 
-            console.log('theData.Countries');
-            console.log(theData.Countries);
+            /*console.log('theData.Countries');*/
+            /*console.log(theData.Countries);*/
 
             setGlobalData(resData);
             setCountriesData(resData);
@@ -140,7 +140,7 @@ function filterCountries() {
     });
 
     if (newData.length != 0) {
-        console.log(newData);
+        /*console.log(newData);*/
 
         countriesTable.innerHTML = '';
 
@@ -229,8 +229,8 @@ function drawRegionsMap() {
         }
     });
 
-    console.log('API call completed!');
-    console.log(countries);
+    /*console.log('API call completed!');*/
+    /*console.log(countries);*/
 
     let data = google.visualization.arrayToDataTable(countries);
     let options = {
