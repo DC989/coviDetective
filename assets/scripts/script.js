@@ -234,7 +234,7 @@ function drawRegionsMap() {
 
     let data = google.visualization.arrayToDataTable(countries);
     let options = {
-        colorAxis: {colors: ['#FF0000', '#8B0000']}
+        colorAxis: {colors: ['#f9ed69', '#f08a5d', '#b83b5e', '#6a2c70']}
     };
     let chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
 
