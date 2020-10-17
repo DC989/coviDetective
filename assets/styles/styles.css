@@ -20,6 +20,7 @@ body {
 
 .global-data .alert-primary {
     background-color: #f9ed69 !important;
+    color: #212529 !important;
 }
 
 .global-data .alert-danger {
